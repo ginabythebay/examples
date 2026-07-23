@@ -1,3 +1,9 @@
-# py_annotations
 
-One way to use Annotations in python
+Example code.  So far we have:
+
+```
+git clone https://codeberg.org/ginabythebay/examples.git
+cd examples/annotations_and_newtype
+uv run main.py
+```
+

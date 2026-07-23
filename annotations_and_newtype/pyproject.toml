@@ -1,5 +1,7 @@
 [project]
 name = "annotations-and-newtype"
+Author: Gina White
+License-Expression: Apache License 2.0
 version = "0.1.0"
 description = "One way to use Annotations and NewType in python"
 readme = "README.md"

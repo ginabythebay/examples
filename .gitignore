@@ -26,6 +26,8 @@ tramp
 # reftex files
 *.rel
 
+.idea/
+
 # AUCTeX auto folder
 /auto/
 
