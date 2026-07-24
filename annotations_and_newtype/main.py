@@ -36,9 +36,7 @@ def formatter_for(field_type: object) -> Formatter:
     return str
 
 
-def render_field(
-    cfg: object, field_name: str, field_info: Annotated[object, ...]
-) -> str:
+def render_field(cfg: object, field_name: str, field_info: object) -> str:
     args: tuple[object, ...] = get_args(field_info)
     base_type: object = args[0]
     formatter = formatter_for(base_type)
@@ -47,9 +45,7 @@ def render_field(
 
 
 def to_text(cfg: object) -> str:
-    field_descriptors: dict[str, Annotated[object, ...]] = (
-        annotationlib.get_annotations(type(cfg))
-    )
+    field_descriptors: dict[str, object] = annotationlib.get_annotations(type(cfg))
     lines = (
         render_field(cfg, field_name, field_type)
         for field_name, field_type in field_descriptors.items()
