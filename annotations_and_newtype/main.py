@@ -7,7 +7,7 @@ Annotated for that.
 
 import annotationlib
 from dataclasses import dataclass
-from typing import Annotated, Callable, NewType, get_args
+from typing import Annotated, Callable, NewType, get_args, cast
 
 # pretty much just ints, but we can introspect and format them differently at run time.
 ChannelId = NewType("ChannelId", int)
@@ -40,7 +40,8 @@ def render_field(cfg: object, field_name: str, field_info: object) -> str:
     args: tuple[object, ...] = get_args(field_info)
     base_type: object = args[0]
     formatter = formatter_for(base_type)
-    field_text = formatter(getattr(cfg, field_name))  # pyright: ignore[reportAny]
+    value = cast(object, getattr(cfg, field_name))
+    field_text = formatter(value)
     return f"{args[1]}: {field_text}"
 
 
